@@ -1,3 +1,4 @@
+from api import get_exchange_rates
 import streamlit as st
 import plotly.express as px
 from utils import load_data
@@ -29,3 +30,15 @@ st.plotly_chart(px.bar(cat, x="Category", y="Sales", color="Category"))
 pivot = df.pivot_table(values="Profit", index="Region", columns="Category")
 fig = px.imshow(pivot, text_auto=True, title="Profit by Region & Category", color_continuous_scale="RdYlGn")
 st.plotly_chart(fig)
+# Live Currency Rates Widget
+st.subheader("💱 Live Currency Exchange Rates (USD Base)")
+
+rates = get_exchange_rates()
+
+# Show only selected currencies
+selected = ["INR", "EUR", "GBP", "JPY", "AUD"]
+col1, col2, col3, col4, col5 = st.columns(5)
+cols = [col1, col2, col3, col4, col5]
+
+for i, currency in enumerate(selected):
+    cols[i].metric(label=currency, value=round(rates[currency], 2))
