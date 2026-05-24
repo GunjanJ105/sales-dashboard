@@ -2,7 +2,7 @@
 
 An interactive Sales Analytics Dashboard built with **Python**, **Streamlit**, and **Plotly** — analyzing 9,994 sales records with dynamic filters, KPI cards, and multiple visualizations.
 
-🔗 **Live Demo**: [Click here to view the app](https://share.streamlit.io) <!-- Replace with your actual Streamlit Cloud link -->
+🔗 **Live Demo**: [Click here to view the app](https://sales-dashboard-hxyu4pxpmzxkktdqyxpnra.streamlit.app/) <!-- Replace with your actual Streamlit Cloud link -->
 
 ---
 
@@ -87,5 +87,4 @@ openpyxl
 
 **Gunjan Jain**  
 📧 gunjanjain1005@gmail.com  
-🔗 [LinkedIn](https://linkedin.com) <!-- Replace with your actual LinkedIn URL -->  
 🐙 [GitHub](https://github.com/GunjanJ105)
