@@ -27,4 +27,5 @@ st.plotly_chart(px.bar(cat, x="Category", y="Sales", color="Category"))
 
 # 3. Profit heatmap by Region+Category
 pivot = df.pivot_table(values="Profit", index="Region", columns="Category")
-st.dataframe(pivot.style.background_gradient())
+fig = px.imshow(pivot, text_auto=True, title="Profit by Region & Category", color_continuous_scale="RdYlGn")
+st.plotly_chart(fig)
