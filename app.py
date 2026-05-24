@@ -1,3 +1,4 @@
+from scraper import get_jobs
 from api import get_exchange_rates
 import streamlit as st
 import plotly.express as px
@@ -42,3 +43,17 @@ cols = [col1, col2, col3, col4, col5]
 
 for i, currency in enumerate(selected):
     cols[i].metric(label=currency, value=round(rates[currency], 2))
+# Job Postings Section
+st.subheader("💼 Live Python Job Postings (Remote)")
+
+keyword = st.selectbox("Search jobs by keyword", ["python", "data-analyst", "sql", "streamlit"])
+
+jobs = get_jobs(keyword)
+
+if jobs:
+    for job in jobs:
+        with st.expander(f"{job['Title']} — {job['Company']}"):
+            st.write(f"🏷️ Tags: {job['Tags']}")
+            st.markdown(f"[View Job]({job['Link']})")
+else:
+    st.write("No jobs found. Try a different keyword.")    
